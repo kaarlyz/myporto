@@ -1,0 +1,641 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ===== LOAD ALL SECTIONS =====
+    loadNavbar();
+    loadHome();
+    loadAbout();
+    loadExperience();
+    loadBusiness();
+    loadContact();
+    loadFooter();
+    
+    // ===== AFTER LOADING, INITIALIZE COMPONENTS =====
+    setTimeout(() => {
+        initHamburger();
+        initActiveLink();
+        initSmoothScroll();
+        initForm();
+        initSocialLinks();
+        initGroupPopup();
+    }, 100);
+    
+});
+
+// ===== LOAD NAVBAR =====
+function loadNavbar() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    
+    navbar.innerHTML = `
+        <div class="nama">
+            <h1>My Portfolio</h1>
+        </div>
+        
+        <div class="main-menu">
+            <a href="#home" class="active"><i class="fas fa-home"></i> <span>home</span></a>
+            <a href="#about"><i class="far fa-user"></i> <span>about</span></a>
+            <a href="#experience"><i class="fas fa-briefcase"></i> <span>experience</span></a>
+            <a href="#business"><i class="fas fa-store"></i> <span>business</span></a>
+            <a href="#contact"><i class="far fa-envelope"></i> <span>contact</span></a>
+        </div>
+        
+        <div class="hamburger-wrapper">
+            <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+                <i class="fas fa-bars"></i>
+                <span class="hamburger-text">More</span>
+            </div>
+            
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                <a href="#profile"><i class="fas fa-user-circle"></i> Profile</a>
+                <a href="#help"><i class="fas fa-question-circle"></i> Help</a>
+                <div class="dropdown-divider"></div>
+                <a href="#darkmode"><i class="fas fa-moon"></i> Dark Mode</a>
+                <a href="#language"><i class="fas fa-language"></i> Language</a>
+                <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    `;
+}
+
+// ===== LOAD HOME =====
+function loadHome() {
+    const home = document.querySelector('#home');
+    if (!home) return;
+    
+    home.innerHTML = `
+        <div class="myname">
+            <h1>My Name is Eka Restu Syahputra</h1>
+            <div class="keterangan">
+                <h2>I'm a Student at SMA Swasta Teladan Medan</h2>
+                <p>I'm a student who is passionate about technology and programming. I enjoy learning new things and exploring the world of coding. In my free time, I like to work on personal projects and improve my skills in web development.</p>
+            </div>
+            
+            <div class="mini-contact">
+                <a href="https://github.com/kaarlyz" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://wa.me/6285177542325" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="profile">
+            <img src="images/icon.jpeg" alt="Foto profil Eka Restu">
+        </div>
+    `;
+}
+
+// ===== LOAD ABOUT =====
+function loadAbout() {
+    const about = document.querySelector('#about');
+    if (!about) return;
+    
+    about.innerHTML = `
+        <div class="myname">
+            <h1>Tentang Saya</h1>
+            <div class="keterangan">
+                <h2>Eka Restu Syahputra</h2>
+                <p>I believe growth happens through consistency. Every single day, I push myself to learn something new, improve my skills, and become better than I was yesterday.</p>
+                <p>I'm not chasing perfection. I'm focused on progress — building discipline, strengthening my problem-solving mindset, and developing the habits that will shape me into a reliable developer in the future.</p>
+                
+                <div class="info-list">
+                    <p><strong>Hobi:</strong> Futsal, Coding, Baca Komik</p>
+                    <p><strong>Pendidikan:</strong> SMA Swasta Teladan Medan</p>
+                    <p><strong>Skill:</strong> HTML, CSS, JavaScript (Dasar)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile">
+            <img src="images/about-icon.jpeg" alt="Ilustrasi About Eka">
+        </div>
+    `;
+}
+
+// ===== LOAD EXPERIENCE =====
+function loadExperience() {
+    const exp = document.querySelector('#experience');
+    if (!exp) return;
+    
+    exp.innerHTML = `
+        <div class="section-title">
+            <h1>My Experience</h1>
+            <div class="title-line"></div>
+        </div>
+        
+        <div class="experience-grid">
+            <div class="exp-card">
+                <div class="exp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp Bot Developer</h3>
+                <p class="exp-desc">Membuat dan mengelola WhatsApp bot untuk kebutuhan automasi dan informasi. Bot ini melayani puluhan pengguna setiap harinya.</p>
+            </div>
+            
+            <div class="exp-card">
+                <div class="exp-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3>Founder - Kika</h3>
+                <p class="exp-desc">Membangun dan mengembangkan bisnis Kika dari awal. Bertanggung jawab atas strategi, operasional, dan pengembangan produk.</p>
+            </div>
+            
+            <div class="exp-card">
+                <div class="exp-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>Admin Rekber</h3>
+                <p class="exp-desc">Menjadi admin rekening bersama (rekber) yang membantu proses transaksi aman antara penjual dan pembeli di berbagai komunitas.</p>
+            </div>
+        </div>
+    `;
+}
+
+// ===== LOAD BUSINESS =====
+function loadBusiness() {
+    const business = document.querySelector('#business');
+    if (!business) return;
+    
+    business.innerHTML = `
+        <div class="section-title">
+            <h1>My Business</h1>
+            <div class="title-line"></div>
+        </div>
+        
+        <div class="business-container">
+            <!-- BOX 1: Jualan (JB) -->
+            <div class="business-main-card">
+                <div class="business-header">
+                    <img src="images/kika.png" alt="Logo Jualan" class="business-main-logo">
+                    <h2>Jualan Online (JB)</h2>
+                </div>
+                
+                <div class="business-content">
+                    <div class="business-item">
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <h4>Jasa Rekber (Rekening Bersama)</h4>
+                            <p>Amanah, cepat, dan terpercaya. Sudah banyak transaksi dengan berbagai nominal.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Jasa Pengamanan Akun</h4>
+                            <p>Amankan akun game, sosmed, dan email. Proteksi 2FA, ganti password, dll.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-item">
+                        <i class="fas fa-boxes"></i>
+                        <div>
+                            <h4>Stock Akun Game</h4>
+                            <p>Jual akun ML, FF, PUBG dll. Harga murah, garansi aman, bisa nego.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-item">
+                        <i class="fas fa-coins"></i>
+                        <div>
+                            <h4>Top-up Game & Voucher</h4>
+                            <p>Top-up ML, FF, dan berbagai game lainnya. Proses cepat, harga kompetitif.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-links">
+                    <h4>Gabung Grup / Order:</h4>
+                    <div class="link-group">
+                        <a href="#" class="business-link group-wa-btn"><i class="fab fa-whatsapp"></i> Grup WA</a>
+                        <a href="#" class="business-link"><i class="fab fa-telegram"></i> Grup Telegram</a>
+                        <a href="#" class="business-link"><i class="fas fa-shopping-cart"></i> Katalog</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BOX 2: Jasa Oprek -->
+            <div class="business-main-card">
+                <div class="business-header">
+                    <i class="fas fa-tools business-main-icon"></i>
+                    <h2>Jasa Oprek</h2>
+                </div>
+                
+                <div class="business-content">
+                    <div class="business-item">
+                        <i class="fas fa-laptop"></i>
+                        <div>
+                            <h4>Servis Laptop</h4>
+                            <p>Install ulang, bersihin debu, ganti thermal</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h4>Servis HP</h4>
+                            <p>Ganti LCD, batre, flashing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-item">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h4>Bantu Coding</h4>
+                            <p>HTML, CSS, JavaScript dasar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-item">
+                        <i class="fas fa-network-wired"></i>
+                        <div>
+                            <h4>Rakit PC</h4>
+                            <p>Konsultasi dan rakit komputer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="business-links">
+                    <h4>Order / Konsultasi:</h4>
+                    <div class="link-group">
+                        <a href="#" class="business-link"><i class="fab fa-whatsapp"></i> Chat WA</a>
+                        <a href="#" class="business-link"><i class="fas fa-envelope"></i> Email</a>
+                        <a href="#" class="business-link"><i class="fas fa-map-marker-alt"></i> Lokasi</a>
+                    </div>
+                </div>
+                
+                <div class="business-status-wrapper">
+                    <span class="business-status active">Buka</span>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add modal after business section
+    addGroupModal();
+}
+
+// ===== ADD GROUP MODAL =====
+function addGroupModal() {
+    // Cek apakah modal sudah ada
+    if (document.getElementById('groupModal')) return;
+    
+    const modalHTML = `
+        <div class="modal-overlay" id="groupModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Pilih Grup WhatsApp</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-groups" id="groupList">
+                    <!-- Groups will be loaded here -->
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// ===== LOAD CONTACT =====
+function loadContact() {
+    const contact = document.querySelector('#contact');
+    if (!contact) return;
+    
+    contact.innerHTML = `
+        <div class="contact-content">
+            <h1>Get in Touch</h1>
+            
+            <div class="mini-contact contact-social">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://wa.me/6285177542325" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            
+            <div class="contact-email">
+                <p><i class="far fa-envelope"></i> ekarestusyahputra.id@gmail.com</p>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Send a Message</h2>
+                
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Nama kamu" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email kamu" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" placeholder="Pesan kamu..." required></textarea>
+                    </div>
+                    <button type="submit" id="sendBtn">
+                        <i class="far fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+                <p id="formFeedback" class="form-feedback"></p>
+            </div>
+        </div>
+    `;
+}
+
+// ===== LOAD FOOTER =====
+function loadFooter() {
+    const footer = document.querySelector('.foot-note');
+    if (!footer) return;
+    
+    footer.innerHTML = `
+        <p>© 2025 Eka Restu Syahputra · built with passion</p>
+    `;
+}
+
+// ===== INIT GROUP POPUP =====
+function initGroupPopup() {
+    const groupBtn = document.querySelector('.group-wa-btn');
+    const modal = document.getElementById('groupModal');
+    const closeBtn = document.querySelector('.modal-close');
+    const groupList = document.getElementById('groupList');
+    
+    if (!groupBtn || !modal || !closeBtn || !groupList) return;
+    
+    // Data grup WhatsApp (cukup nama, deskripsi, link)
+    const groups = [
+        {
+            name: 'Grup Jualan 1',
+            description: 'Grup utama jualan pulsa & kuota',
+            link: 'https://chat.whatsapp.com/DT1C5Pai43WGvjHO6ZGUNn?mode=gi_t'
+        },
+        {
+            name: 'Grup Jualan 2',
+            description: 'Grup thrifting & fashion',
+            link: 'https://chat.whatsapp.com/example2'
+        },
+        {
+            name: 'Grup Jualan 3',
+            description: 'Grup top-up game & voucher',
+            link: 'https://chat.whatsapp.com/example3'
+        },
+        {
+            name: 'Grup Jualan 4',
+            description: 'Grup jasa rekber & pengamanan',
+            link: 'https://chat.whatsapp.com/example4'
+        },
+        {
+            name: 'Grup Jualan 5',
+            description: 'Grup stock akun game',
+            link: 'https://chat.whatsapp.com/example5'
+        },
+        {
+            name: 'Grup Jualan 6',
+            description: 'Grup stock akun game',
+            link: 'https://chat.whatsapp.com/example6'
+        }
+    ];
+    
+    // Load grup ke modal (seluruh area bisa diklik)
+    groupList.innerHTML = groups.map(group => `
+        <div class="group-item" data-link="${group.link}" role="button" tabindex="0">
+            <i class="fab fa-whatsapp"></i>
+            <div class="group-info">
+                <h4>${group.name}</h4>
+                <p>${group.description}</p>
+            </div>
+        </div>
+    `).join('');
+    
+    // Event listener untuk membuka modal
+    groupBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Klik pada item grup membuka link
+    document.querySelectorAll('.group-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            const link = this.dataset.link;
+            if (link) {
+                window.open(link, '_blank');
+            }
+        });
+    });
+    
+    // Tutup modal
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+    });
+    
+    // Klik di luar modal
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    });
+}
+// ===== INIT HAMBURGER =====
+function initHamburger() {
+    const hamburger = document.getElementById('hamburger');
+    const dropdown = document.getElementById('dropdownMenu');
+    
+    if (!hamburger || !dropdown) return;
+    
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+        
+        const icon = this.querySelector('i');
+        if (dropdown.classList.contains('show')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    });
+    
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            dropdown.classList.remove('show');
+            const icon = hamburger.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    });
+}
+
+// ===== INIT ACTIVE LINK =====
+function initActiveLink() {
+    const sections = document.querySelectorAll('section');
+    const mainMenuLinks = document.querySelectorAll('.main-menu a');
+    
+    function setActiveLink() {
+        let current = '';
+        const scrollPosition = window.scrollY + 120;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        mainMenuLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').substring(1);
+            if (href === current) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', setActiveLink);
+    setActiveLink();
+}
+
+// ===== INIT SMOOTH SCROLL =====
+function initSmoothScroll() {
+    const mainMenuLinks = document.querySelectorAll('.main-menu a');
+    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+    
+    function handleSmoothScroll(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        if (targetId.startsWith('#')) {
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        } else {
+            window.location.href = targetId;
+        }
+    }
+    
+    mainMenuLinks.forEach(link => {
+        link.addEventListener('click', handleSmoothScroll);
+    });
+    
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', handleSmoothScroll);
+    });
+}
+
+// ===== INIT FORM =====
+function initForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!contactForm) return;
+    
+    const sendBtn = document.getElementById('sendBtn');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    const feedback = document.getElementById('formFeedback');
+    
+    [nameInput, emailInput, messageInput].forEach(input => {
+        if (input) {
+            input.addEventListener('input', function() {
+                this.classList.remove('error');
+            });
+        }
+    });
+    
+    if (sendBtn) {
+        sendBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            if (!nameInput || nameInput.value.trim() === '') {
+                if (nameInput) nameInput.classList.add('error');
+                isValid = false;
+            }
+            
+            if (!emailInput || emailInput.value.trim() === '') {
+                if (emailInput) emailInput.classList.add('error');
+                isValid = false;
+            } else if (emailInput && !isValidEmail(emailInput.value)) {
+                emailInput.classList.add('error');
+                if (feedback) {
+                    feedback.innerHTML = '❌ Email tidak valid!';
+                    feedback.style.color = '#b00020';
+                }
+                return;
+            }
+            
+            if (!messageInput || messageInput.value.trim() === '') {
+                if (messageInput) messageInput.classList.add('error');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                if (feedback) {
+                    feedback.innerHTML = '❌ Isi semua field dulu ya!';
+                    feedback.style.color = '#b00020';
+                }
+                return;
+            }
+            
+            if (feedback) {
+                feedback.innerHTML = '✅ Pesan diterima! (Demo - akan segera dihubungi)';
+                feedback.style.color = '#0f371f';
+            }
+            
+            contactForm.reset();
+            
+            sendBtn.disabled = true;
+            sendBtn.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                sendBtn.disabled = false;
+                sendBtn.style.opacity = '1';
+                if (feedback) feedback.innerHTML = '';
+            }, 3000);
+        });
+    }
+    
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+}
+
+// ===== INIT SOCIAL LINKS =====
+function initSocialLinks() {
+    const socialLinks = document.querySelectorAll('.mini-contact a[href="#"]');
+    socialLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('🔗 Link ini belum diisi. Nanti tinggal ganti href-nya aja.');
+        });
+    });
+}

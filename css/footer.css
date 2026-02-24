@@ -1,0 +1,11 @@
+/* ===== FOOTER ===== */
+.foot-note {
+    text-align: center;
+    margin-top: auto;
+    padding: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    backdrop-filter: blur(10px);
+    background: rgba(30, 60, 40, 0.4);
+    border-top: 1px solid rgba(255,255,255,0.2);
+}

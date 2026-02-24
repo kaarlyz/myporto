@@ -1,0 +1,63 @@
+/* ===== RESET & BASE ===== */
+@import url('css/navbar.css');
+@import url('css/home.css');
+@import url('css/about.css');
+@import url('css/experience.css');
+@import url('css/business.css');
+@import url('css/contact.css');
+@import url('css/footer.css');
+
+/* ===== RESET & BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Montserrat', sans-serif;
+    background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #1a2e1f;
+    padding-top: 80px;
+}
+
+/* ===== HTML SCROLL ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scroll offset */
+#home, #about, #experience, #business, #contact {
+    scroll-margin-top: 100px;
+}
+
+/* ===== MAIN CARD (SHARED) ===== */
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1400px;
+    margin: 2rem auto 4rem auto;
+    background: rgba(6, 0, 0, 0.2);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 3.5rem;
+    padding: 3rem 4rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 30px 50px -20px rgba(0, 40, 20, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+}

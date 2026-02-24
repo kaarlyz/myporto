@@ -1,0 +1,22 @@
+/* ===== ABOUT SECTION ===== */
+.about-box {
+    /* Inherit from .box */
+}
+
+.info-list {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 1.5rem 2rem;
+    border-radius: 2rem;
+    margin-top: 1.5rem;
+}
+
+.info-list p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* About specific */
+.about-box .myname h2 {
+    color: #0f371f;
+    text-shadow: none;
+}
