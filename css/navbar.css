@@ -168,17 +168,51 @@
         font-size: 1rem;
     }
 }
-
 /* ===== HAMBURGER WRAPPER ===== */
 .hamburger-wrapper {
     position: relative;
     display: block;
 }
 
-/* Pastikan dropdown tidak terpotong di mobile */
+/* Dropdown menu styling */
+.dropdown-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    min-width: 220px;
+    background: rgba(30, 70, 50, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    padding: 1rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 35px -10px rgba(0, 30, 10, 0.5);
+    display: none;
+    z-index: 1001;
+}
+
+/* Pastikan dropdown tetap di dalam wrapper di mobile */
 @media screen and (max-width: 576px) {
     .hamburger-wrapper {
-        position: static;
+        position: relative; /* JANGAN static, tetap relative */
+    }
+    
+    .dropdown-menu {
+        position: absolute;
+        top: 50px; /* Sesuaikan posisi */
+        right: 0;
+        left: auto; /* Pastikan tidak melebar ke kiri */
+        min-width: 200px;
+        width: auto; /* Jangan full width */
+        border-radius: 1.2rem;
+    }
+}
+
+/* Untuk layar sangat kecil, turunkan sedikit */
+@media screen and (max-width: 380px) {
+    .dropdown-menu {
+        top: 45px;
+        min-width: 180px;
     }
 }
 
@@ -222,7 +256,7 @@
     }
     
     .hamburger-text {
-        display: none; /* Sembunyikan teks Menu di tablet */
+        display: none;
     }
 }
 

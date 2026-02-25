@@ -474,17 +474,15 @@ function loadContact() {
     `;
 }
 
-// ===== LOAD FOOTER =====
+//// ===== LOAD FOOTER =====
 function loadFooter() {
     const footer = document.querySelector('.foot-note');
     if (!footer) return;
     
     footer.innerHTML = `
         <div class="footer-content">
-            <p>
-                <span>© 2025 Eka Restu Syahputra</span>
-                <span>·</span>
-                <span>Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> using HTML, CSS, JavaScript</span>
+            <p class="footer-copyright">
+                © 2026 Eka Restu Syahputra. All rights reserved.
             </p>
             <div class="footer-links">
                 <a href="https://github.com/kaarlyz" target="_blank" aria-label="GitHub" title="GitHub">
@@ -496,7 +494,7 @@ function loadFooter() {
                 <a href="https://wa.me/6285177542325" target="_blank" aria-label="WhatsApp" title="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="#home" id="scrollToTop" aria-label="Scroll to top" title="Kembali ke atas">
+                <a href="#home" id="scrollToTop" aria-label="Scroll to top" title="Back to top">
                     <i class="fas fa-chevron-up"></i>
                 </a>
             </div>
