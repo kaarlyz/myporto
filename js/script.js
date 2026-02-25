@@ -713,12 +713,7 @@ function initHamburger() {
     hamburger.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
-        
-        if (dropdown.classList.contains('show')) {
-            closeDropdown();
-        } else {
-            openDropdown();
-        }
+        dropdown.classList.contains('show') ? closeDropdown() : openDropdown();
     });
     
     // Tutup saat klik overlay
@@ -734,17 +729,18 @@ function initHamburger() {
     // Tutup saat link diklik
     document.querySelectorAll('.dropdown-menu a').forEach(link => {
         link.addEventListener('click', function(e) {
-            if (this.getAttribute('href').startsWith('#')) {
+            const href = this.getAttribute('href');
+            
+            if (href.startsWith('#')) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
+                const targetSection = document.querySelector(href);
                 
                 if (targetSection) {
                     closeDropdown();
                     setTimeout(() => {
                         const offsetTop = targetSection.offsetTop - 80;
                         window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-                        history.pushState(null, null, targetId);
+                        history.pushState(null, null, href);
                     }, 150);
                 }
             } else {
