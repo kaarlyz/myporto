@@ -29,7 +29,7 @@ function loadNavbar() {
     
     navbar.innerHTML = `
         <div class="nama">
-            <h1>Eka Restu</h1>
+            <h1>My Portofolio</h1>
         </div>
         
         <div class="main-menu">
@@ -88,7 +88,6 @@ function loadHome() {
 }
 
 
-
 // ===== LOAD ABOUT =====
 function loadAbout() {
     const about = document.querySelector('#about');
@@ -97,7 +96,7 @@ function loadAbout() {
     about.innerHTML = `
         <div class="box about-box">
             <div class="section-title">
-                <h1>Tentang Saya</h1>
+                <h1>About Me</h1>
                 <div class="title-line"></div>
             </div>
             
@@ -105,15 +104,15 @@ function loadAbout() {
             <div class="about-stats">
                 <div class="stat-item">
                     <div class="stat-number">2+</div>
-                    <div class="stat-label">Tahun Belajar</div>
+                    <div class="stat-label">Years of Learning</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">10+</div>
-                    <div class="stat-label">Project Pribadi</div>
+                    <div class="stat-label">Personal Projects</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">3</div>
-                    <div class="stat-label">Bisnis Digital</div>
+                    <div class="stat-label">Digital Businesses</div>
                 </div>
             </div>
             
@@ -138,28 +137,28 @@ function loadAbout() {
                 <div class="about-card">
                     <div class="about-card-header">
                         <i class="fas fa-address-card"></i>
-                        <h3>Informasi Personal</h3>
+                        <h3>Personal Info</h3>
                     </div>
                     <div class="about-card-content">
                         <div class="about-card-item">
                             <i class="fas fa-graduation-cap"></i>
-                            <span class="label">Pendidikan</span>
+                            <span class="label">Education</span>
                             <span class="value">SMA Swasta Teladan Medan</span>
                         </div>
                         <div class="about-card-item">
                             <i class="fas fa-heart"></i>
-                            <span class="label">Hobi</span>
-                            <span class="value">Futsal, Coding, Baca Komik</span>
+                            <span class="label">Interests</span>
+                            <span class="value">Running, Nutrition, Coding, Comics</span>
                         </div>
                         <div class="about-card-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span class="label">Domisili</span>
+                            <span class="label">Location</span>
                             <span class="value">Medan, Indonesia</span>
                         </div>
                         <div class="about-card-item">
                             <i class="fas fa-language"></i>
-                            <span class="label">Bahasa</span>
-                            <span class="value">Indonesia, Inggris (Basic)</span>
+                            <span class="label">Languages</span>
+                            <span class="value">Indonesian, English (Basic)</span>
                         </div>
                     </div>
                 </div>
@@ -196,7 +195,7 @@ function loadAbout() {
             
             <!-- Skills Cloud -->
             <div class="about-skills">
-                <h3><i class="fas fa-cog"></i> Skill yang Dipelajari</h3>
+                <h3><i class="fas fa-cog"></i> Skills & Expertise</h3>
                 <div class="skills-cloud">
                     <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
                     <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
@@ -211,8 +210,12 @@ function loadAbout() {
             <!-- Interests -->
             <div class="about-interests">
                 <div class="interest-item">
-                    <i class="fas fa-futbol"></i>
-                    <span>Futsal</span>
+                    <i class="fas fa-running"></i>
+                    <span>Running</span>
+                </div>
+                <div class="interest-item">
+                    <i class="fas fa-leaf"></i>
+                    <span>Nutrition</span>
                 </div>
                 <div class="interest-item">
                     <i class="fas fa-laptop-code"></i>
@@ -220,22 +223,18 @@ function loadAbout() {
                 </div>
                 <div class="interest-item">
                     <i class="fas fa-book-open"></i>
-                    <span>Baca Komik</span>
+                    <span>Comics</span>
                 </div>
                 <div class="interest-item">
-                    <i class="fas fa-gamepad"></i>
-                    <span>Gaming</span>
-                </div>
-                <div class="interest-item">
-                    <i class="fas fa-music"></i>
-                    <span>Musik</span>
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Healthy Lifestyle</span>
                 </div>
             </div>
         </div>
     `;
 }
 
-// ===== LOAD EXPERIENCE =====
+/// ===== LOAD EXPERIENCE =====
 function loadExperience() {
     const exp = document.querySelector('#experience');
     if (!exp) return;
@@ -243,7 +242,7 @@ function loadExperience() {
     exp.innerHTML = `
         <div class="box experience-box">
             <div class="section-title">
-                <h1>My Experience</h1>
+                <h1>Professional Experience</h1>
                 <div class="title-line"></div>
             </div>
             
@@ -252,31 +251,31 @@ function loadExperience() {
                     <div class="exp-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
-                    <h3>WhatsApp Bot Developer</h3>
-                    <p class="exp-desc">Membuat dan mengelola WhatsApp bot untuk kebutuhan automasi dan informasi. Bot ini melayani puluhan pengguna setiap harinya.</p>
+                    <h3>Automation Engineer</h3>
+                    <p class="exp-desc">Developed and managed WhatsApp-based automation systems for business workflows. Successfully served hundreds of users daily with reliable information services and automated responses.</p>
                 </div>
                 
                 <div class="exp-card">
                     <div class="exp-icon">
                         <i class="fas fa-store"></i>
                     </div>
-                    <h3>Founder - Kika</h3>
-                    <p class="exp-desc">Membangun dan mengembangkan bisnis Kika dari awal. Bertanggung jawab atas strategi, operasional, dan pengembangan produk.</p>
+                    <h3>Founder & Business Lead</h3>
+                    <p class="exp-desc">Founded and scaled KIKA Digital from ground up. Oversaw business strategy, daily operations, and product development across multiple digital service verticals.</p>
                 </div>
                 
                 <div class="exp-card">
                     <div class="exp-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Admin Rekber</h3>
-                    <p class="exp-desc">Menjadi admin rekening bersama (rekber) yang membantu proses transaksi aman antara penjual dan pembeli di berbagai komunitas.</p>
+                    <h3>Escrow Service Administrator</h3>
+                    <p class="exp-desc">Managed secure transaction facilitation as a trusted third-party mediator. Ensured safe exchanges between buyers and sellers across various online communities.</p>
                 </div>
             </div>
         </div>
     `;
 }
 
-// ===== LOAD BUSINESS =====
+/// ===== LOAD BUSINESS =====
 function loadBusiness() {
     const business = document.querySelector('#business');
     if (!business) return;
@@ -284,114 +283,114 @@ function loadBusiness() {
     business.innerHTML = `
         <div class="box business-box">
             <div class="section-title">
-                <h1>My Business</h1>
+                <h1>Business Portfolio</h1>
                 <div class="title-line"></div>
             </div>
             
             <div class="business-container">
-                <!-- BOX 1: Jualan (JB) -->
+                <!-- BOX 1: Digital Commerce -->
                 <div class="business-main-card">
                     <div class="business-header">
-                        <img src="images/kika.png" alt="Logo Jualan" class="business-main-logo">
-                        <h2>Jualan Online (JB)</h2>
+                        <img src="images/kika.png" alt="KIKA Logo" class="business-main-logo">
+                        <h2>KIKA Digital</h2>
                     </div>
                     
                     <div class="business-content">
                         <div class="business-item">
                             <i class="fas fa-handshake"></i>
                             <div>
-                                <h4>Jasa Rekber (Rekening Bersama)</h4>
-                                <p>Amanah, cepat, dan terpercaya. Sudah banyak transaksi dengan berbagai nominal.</p>
+                                <h4>Escrow Service (Rekber)</h4>
+                                <p>Secure transaction facilitation for online marketplace. Trusted by hundreds of clients with various nominal transactions.</p>
                             </div>
                         </div>
                         
                         <div class="business-item">
                             <i class="fas fa-shield-alt"></i>
                             <div>
-                                <h4>Jasa Pengamanan Akun</h4>
-                                <p>Amankan akun game, sosmed, dan email. Proteksi 2FA, ganti password, dll.</p>
+                                <h4>Account Security Service</h4>
+                                <p>Account protection for games, social media, and email. 2FA setup, password recovery, and security consultation.</p>
                             </div>
                         </div>
                         
                         <div class="business-item">
                             <i class="fas fa-boxes"></i>
                             <div>
-                                <h4>Stock Akun Game</h4>
-                                <p>Jual akun ML, FF, PUBG dll. Harga murah, garansi aman, bisa nego.</p>
+                                <h4>Game Account Marketplace</h4>
+                                <p>Verified ML, FF, PUBG accounts. Competitive pricing with security guarantee and negotiable terms.</p>
                             </div>
                         </div>
                         
                         <div class="business-item">
                             <i class="fas fa-coins"></i>
                             <div>
-                                <h4>Top-up Game & Voucher</h4>
-                                <p>Top-up ML, FF, dan berbagai game lainnya. Proses cepat, harga kompetitif.</p>
+                                <h4>Game Top-up & Vouchers</h4>
+                                <p>Fast and reliable top-up for Mobile Legends, Free Fire, and other popular games. Best rates in town.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="business-links">
-                        <h4>Gabung Grup / Order:</h4>
+                        <h4>Join Community / Order:</h4>
                         <div class="link-group">
-                            <a href="#" class="business-link group-wa-btn"><i class="fab fa-whatsapp"></i> Grup WA</a>
-                            <a href="#" class="business-link"><i class="fab fa-telegram"></i> Grup Telegram</a>
-                            <a href="#" class="business-link"><i class="fas fa-shopping-cart"></i> Katalog</a>
+                            <a href="#" class="business-link group-wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp Group</a>
+                            <a href="#" class="business-link"><i class="fab fa-telegram"></i> Telegram Channel</a>
+                            <a href="#" class="business-link"><i class="fas fa-shopping-cart"></i> Product Catalog</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- BOX 2: Jasa Oprek -->
+                <!-- BOX 2: Technical Services -->
                 <div class="business-main-card">
                     <div class="business-header">
-                        <i class="fas fa-tools business-main-icon"></i>
-                        <h2>Jasa Oprek</h2>
+                        <i class="fas fa-microchip business-main-icon"></i>
+                        <h2>TechLab Solutions</h2>
                     </div>
                     
                     <div class="business-content">
                         <div class="business-item">
-                            <i class="fas fa-laptop"></i>
+                            <i class="fas fa-laptop-code"></i>
                             <div>
-                                <h4>Servis Laptop</h4>
-                                <p>Install ulang, bersihin debu, ganti thermal</p>
+                                <h4>Laptop Repair & Maintenance</h4>
+                                <p>Professional laptop servicing including OS installation, cleaning, thermal paste replacement, and hardware upgrades.</p>
                             </div>
                         </div>
                         
                         <div class="business-item">
                             <i class="fas fa-mobile-alt"></i>
                             <div>
-                                <h4>Servis HP</h4>
-                                <p>Ganti LCD, batre, flashing</p>
+                                <h4>Smartphone Repair</h4>
+                                <p>LCD replacement, battery change, flashing service, and other mobile device repairs with quality parts.</p>
                             </div>
                         </div>
                         
                         <div class="business-item">
                             <i class="fas fa-code"></i>
                             <div>
-                                <h4>Bantu Coding</h4>
-                                <p>HTML, CSS, JavaScript dasar</p>
+                                <h4>Coding Assistance</h4>
+                                <p>Basic web development help (HTML, CSS, JavaScript). Perfect for students and beginners.</p>
                             </div>
                         </div>
                         
                         <div class="business-item">
-                            <i class="fas fa-network-wired"></i>
+                            <i class="fas fa-desktop"></i>
                             <div>
-                                <h4>Rakit PC</h4>
-                                <p>Konsultasi dan rakit komputer</p>
+                                <h4>PC Building & Consultation</h4>
+                                <p>Custom PC assembly service with component recommendations tailored to your needs and budget.</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="business-links">
-                        <h4>Order / Konsultasi:</h4>
+                        <h4>Contact & Support:</h4>
                         <div class="link-group">
-                            <a href="#" class="business-link"><i class="fab fa-whatsapp"></i> Chat WA</a>
-                            <a href="#" class="business-link"><i class="fas fa-envelope"></i> Email</a>
-                            <a href="#" class="business-link"><i class="fas fa-map-marker-alt"></i> Lokasi</a>
+                            <a href="#" class="business-link"><i class="fab fa-whatsapp"></i> WhatsApp Support</a>
+                            <a href="#" class="business-link"><i class="fas fa-envelope"></i> Email Inquiry</a>
+                            <a href="#" class="business-link"><i class="fas fa-map-marker-alt"></i> Service Location</a>
                         </div>
                     </div>
                     
                     <div class="business-status-wrapper">
-                        <span class="business-status active">Buka</span>
+                        <span class="business-status active">Currently Open</span>
                     </div>
                 </div>
             </div>
@@ -482,12 +481,56 @@ function loadFooter() {
     
     footer.innerHTML = `
         <div class="footer-content">
-            <p>© 2025 Eka Restu Syahputra · Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> using HTML, CSS, JavaScript</p>
+            <p>
+                <span>© 2025 Eka Restu Syahputra</span>
+                <span>·</span>
+                <span>Built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> using HTML, CSS, JavaScript</span>
+            </p>
             <div class="footer-links">
-                <a href="#home"><i class="fas fa-chevron-up" id="scrollToTop"></i></a>
+                <a href="https://github.com/kaarlyz" target="_blank" aria-label="GitHub" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" aria-label="LinkedIn" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://wa.me/6285177542325" target="_blank" aria-label="WhatsApp" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#home" id="scrollToTop" aria-label="Scroll to top" title="Kembali ke atas">
+                    <i class="fas fa-chevron-up"></i>
+                </a>
             </div>
         </div>
     `;
+    
+    // Initialize scroll to top button
+    initScrollToTop();
+}
+
+// ===== INIT SCROLL TO TOP =====
+function initScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (!scrollBtn) return;
+    
+    // Tampilkan/sembunyikan button berdasarkan scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollBtn.style.opacity = '1';
+            scrollBtn.style.pointerEvents = 'auto';
+        } else {
+            scrollBtn.style.opacity = '0.5';
+            scrollBtn.style.pointerEvents = 'auto'; // Tetap bisa diklik tapi transparan
+        }
+    });
+    
+    // Smooth scroll to top
+    scrollBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // ===== INIT GROUP POPUP =====
