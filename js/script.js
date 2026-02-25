@@ -666,77 +666,105 @@ function initGroupPopup() {
     });
 }
 
-// Update di function initHamburger()
+/// ===== INIT HAMBURGER =====
 function initHamburger() {
     const hamburger = document.getElementById('hamburger');
     const dropdown = document.getElementById('dropdownMenu');
     
     if (!hamburger || !dropdown) return;
     
+    // Buat overlay
+    let overlay = document.querySelector('.dropdown-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'dropdown-overlay';
+        document.body.appendChild(overlay);
+    }
+    
+    function closeDropdown() {
+        dropdown.classList.remove('show');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('show');
+        
+        const icon = hamburger.querySelector('i');
+        if (icon) {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+        
+        document.body.style.overflow = '';
+    }
+    
+    function openDropdown() {
+        dropdown.classList.add('show');
+        hamburger.classList.add('active');
+        overlay.classList.add('show');
+        
+        const icon = hamburger.querySelector('i');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+        
+        if (window.innerWidth <= 768) {
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    
+    // Toggle dropdown
     hamburger.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
         
-        // Toggle class
-        dropdown.classList.toggle('show');
-        this.classList.toggle('active');
-        
-        // Update icon
-        const icon = this.querySelector('i');
         if (dropdown.classList.contains('show')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-            this.setAttribute('aria-expanded', 'true');
-            
-            // Atur posisi dropdown di mobile
-            if (window.innerWidth <= 576) {
-                const rect = this.getBoundingClientRect();
-                dropdown.style.top = (rect.bottom + 10) + 'px';
-                dropdown.style.left = '1rem';
-                dropdown.style.right = '1rem';
-            }
+            closeDropdown();
         } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-            this.setAttribute('aria-expanded', 'false');
-            dropdown.style.top = ''; // Reset
+            openDropdown();
         }
     });
+    
+    // Tutup saat klik overlay
+    overlay.addEventListener('click', closeDropdown);
     
     // Tutup saat klik di luar
     document.addEventListener('click', function(e) {
         if (!hamburger.contains(e.target) && !dropdown.contains(e.target)) {
-            dropdown.classList.remove('show');
-            hamburger.classList.remove('active');
-            const icon = hamburger.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-            dropdown.style.top = ''; // Reset
-        }
-    });
-    
-    // Handle resize
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 576) {
-            dropdown.style.top = ''; // Reset posisi
+            closeDropdown();
         }
     });
     
     // Tutup saat link diklik
-    const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
-    dropdownLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            dropdown.classList.remove('show');
-            hamburger.classList.remove('active');
-            const icon = hamburger.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+    document.querySelectorAll('.dropdown-menu a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    closeDropdown();
+                    setTimeout(() => {
+                        const offsetTop = targetSection.offsetTop - 80;
+                        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+                        history.pushState(null, null, targetId);
+                    }, 150);
+                }
+            } else {
+                closeDropdown();
             }
-            dropdown.style.top = ''; // Reset
         });
+    });
+    
+    // Handle resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && dropdown.classList.contains('show')) {
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && dropdown.classList.contains('show')) {
+            closeDropdown();
+        }
     });
 }
 

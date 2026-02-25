@@ -42,17 +42,10 @@
 
 @media screen and (max-width: 576px) {
     .navbar {
-        padding: 0.5rem 1.2rem;
+        padding: 0.5rem 1rem;
         width: calc(100% - 1.5rem);
         top: 0.8rem;
         border-radius: 1.5rem;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .navbar {
-        padding: 0.4rem 1rem;
-        width: calc(100% - 1rem);
     }
 }
 
@@ -66,25 +59,17 @@
     color: transparent;
     text-shadow: 0 2px 5px rgba(0,30,10,0.3);
     margin: 0;
-    white-space: nowrap; /* Mencegah teks turun ke bawah */
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 768px) {
-    .nama h1 {
-        font-size: 1.3rem;
-    }
+    .nama h1 { font-size: 1.3rem; }
 }
-
 @media screen and (max-width: 576px) {
-    .nama h1 {
-        font-size: 1.2rem;
-    }
+    .nama h1 { font-size: 1.2rem; }
 }
-
 @media screen and (max-width: 380px) {
-    .nama h1 {
-        font-size: 1rem;
-    }
+    .nama h1 { font-size: 1rem; }
 }
 
 /* ===== MAIN MENU ===== */
@@ -106,7 +91,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    white-space: nowrap; /* Mencegah teks turun */
+    white-space: nowrap;
 }
 
 .main-menu a:hover,
@@ -116,58 +101,24 @@
     transform: translateY(-2px);
 }
 
-/* Tablet - kurangi gap */
 @media screen and (max-width: 992px) {
-    .main-menu {
-        gap: 1rem;
-    }
-    
-    .main-menu a {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.95rem;
-    }
+    .main-menu { gap: 1rem; }
+    .main-menu a { padding: 0.5rem 0.8rem; font-size: 0.95rem; }
 }
 
-/* Mobile landscape - sembunyikan teks, hanya ikon */
 @media screen and (max-width: 768px) {
-    .main-menu {
-        gap: 0.5rem;
-    }
-    
-    .main-menu a {
-        padding: 0.5rem 0.7rem;
-    }
-    
-    .main-menu a span {
-        display: none;
-    }
-    
-    .main-menu a i {
-        font-size: 1.2rem;
-    }
+    .main-menu { gap: 0.5rem; }
+    .main-menu a { padding: 0.5rem 0.7rem; }
+    .main-menu a span { display: none; }
+    .main-menu a i { font-size: 1.2rem; }
 }
 
-/* Mobile kecil - padding lebih kecil */
 @media screen and (max-width: 576px) {
-    .main-menu {
-        gap: 0.3rem;
-    }
-    
-    .main-menu a {
-        padding: 0.4rem 0.5rem;
-    }
-    
-    .main-menu a i {
-        font-size: 1.1rem;
-    }
+    .main-menu { gap: 0.3rem; }
+    .main-menu a { padding: 0.4rem 0.5rem; }
+    .main-menu a i { font-size: 1.1rem; }
 }
 
-/* Layar sangat kecil - ikon mengecil */
-@media screen and (max-width: 380px) {
-    .main-menu a i {
-        font-size: 1rem;
-    }
-}
 /* ===== HAMBURGER WRAPPER ===== */
 .hamburger-wrapper {
     position: relative;
@@ -175,106 +126,7 @@
     z-index: 1000;
 }
 
-/* Dropdown menu styling */
-.dropdown-menu {
-    position: absolute;
-    top: calc(100% + 10px); /* Selalu di bawah hamburger */
-    right: 0;
-    min-width: 220px;
-    background: rgba(30, 70, 50, 0.95); /* Lebih solid untuk mobile */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 1.5rem;
-    padding: 0.8rem 0;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 1001;
-    
-    /* Animasi */
-    transform-origin: top right;
-    animation: dropdownFadeIn 0.2s ease;
-}
-
-@keyframes dropdownFadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95) translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-/* Mobile specific fixes */
-@media screen and (max-width: 768px) {
-    .dropdown-menu {
-        position: fixed; /* Fixed biar ga kena overflow parent */
-        top: auto;
-        bottom: auto;
-        right: 1rem;
-        left: 1rem;
-        width: auto;
-        min-width: auto;
-        max-width: 300px;
-        margin: 0 auto;
-        transform-origin: top center;
-    }
-    
-    /* Posisikan di bawah hamburger dengan JavaScript bakal ngatur ini */
-    .dropdown-menu.show {
-        position: absolute;
-    }
-}
-
-/* Untuk HP tertentu (Redmi, dll) */
-@media screen and (max-width: 576px) {
-    .hamburger-wrapper {
-        position: static; /* Biar wrapper ga ngikat */
-    }
-    
-    .dropdown-menu {
-        position: fixed;
-        top: 70px; /* Di bawah navbar */
-        left: 1rem;
-        right: 1rem;
-        width: auto;
-        max-width: none;
-        border-radius: 1.2rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
-    
-    /* Animasi masuk dari atas */
-    @keyframes mobileDropdownIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    .dropdown-menu.show {
-        animation: mobileDropdownIn 0.25s ease;
-    }
-}
-
-/* Landscape mode */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .dropdown-menu {
-        max-height: 80vh;
-        overflow-y: auto;
-        top: 60px;
-    }
-    
-    .dropdown-menu a {
-        padding: 0.5rem 1rem;
-    }
-}
-
+/* HAMBURGER BUTTON */
 .hamburger {
     display: flex;
     align-items: center;
@@ -289,6 +141,7 @@
     transition: all 0.2s ease;
     position: relative;
     z-index: 1002;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger:hover {
@@ -307,94 +160,56 @@
 /* Ikon hamburger animasi */
 .hamburger i {
     transition: transform 0.3s ease;
+    pointer-events: none;
 }
 
 .hamburger.active i {
     transform: rotate(90deg);
 }
 
-/* Responsive hamburger */
 @media screen and (max-width: 992px) {
-    .hamburger {
-        padding: 0.5rem 1rem;
-    }
+    .hamburger { padding: 0.5rem 1rem; }
 }
-
 @media screen and (max-width: 768px) {
-    .hamburger {
-        padding: 0.4rem 0.8rem;
+    .hamburger { 
+        padding: 0.5rem 0.9rem; 
+        background: rgba(30, 70, 50, 0.9);
     }
-    
-    .hamburger-text {
-        display: none;
-    }
+    .hamburger-text { display: none; }
 }
-
 @media screen and (max-width: 576px) {
-    .hamburger {
-        padding: 0.5rem 0.8rem;
-        font-size: 1.2rem;
-        background: rgba(30, 70, 50, 0.8); /* Lebih solid di mobile */
-        border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+    .hamburger { padding: 0.5rem 0.8rem; font-size: 1.2rem; }
 }
-
 @media screen and (max-width: 380px) {
-    .hamburger {
-        padding: 0.4rem 0.6rem;
-        font-size: 1.1rem;
-    }
+    .hamburger { padding: 0.4rem 0.6rem; font-size: 1.1rem; }
 }
 
 /* ===== DROPDOWN MENU ===== */
 .dropdown-menu {
     position: absolute;
-    top: 60px;
+    top: calc(100% + 10px);
     right: 0;
     min-width: 220px;
-    background: rgba(30, 70, 50, 0.4);
+    background: rgba(30, 70, 50, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 1.5rem;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 35px -10px rgba(0, 30, 10, 0.5);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 1001;
-}
-
-/* Dropdown di tablet */
-@media screen and (max-width: 992px) {
-    .dropdown-menu {
-        top: 55px;
-        min-width: 200px;
-    }
-}
-
-/* Dropdown full width di mobile */
-@media screen and (max-width: 576px) {
-    .dropdown-menu {
-        position: fixed;
-        top: 70px;
-        left: 1rem;
-        right: 1rem;
-        width: auto;
-        min-width: auto;
-        border-radius: 1.2rem;
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .dropdown-menu {
-        top: 65px;
-        left: 0.8rem;
-        right: 0.8rem;
-    }
+    
+    /* Animasi */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .dropdown-menu.show {
     display: block;
-    animation: slideDown 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .dropdown-menu a {
@@ -406,23 +221,19 @@
     text-decoration: none;
     font-size: 1rem;
     transition: all 0.2s ease;
-}
-
-/* Touch target lebih besar di mobile */
-@media screen and (max-width: 576px) {
-    .dropdown-menu a {
-        padding: 1rem 1.5rem;
-    }
+    border-left: 3px solid transparent;
 }
 
 .dropdown-menu a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+    border-left-color: #8fc99e;
     padding-left: 2rem;
 }
 
 .dropdown-menu i {
     width: 20px;
     text-align: center;
+    color: #8fc99e;
 }
 
 .dropdown-divider {
@@ -431,6 +242,67 @@
     margin: 0.5rem 0;
 }
 
+/* ===== MOBILE DROPDOWN (FIXED POSITION) ===== */
+@media screen and (max-width: 768px) {
+    .dropdown-menu {
+        position: fixed;
+        top: 70px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%) translateY(-10px);
+        width: 280px;
+        max-width: 90%;
+        min-width: auto;
+        border-radius: 1.2rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .dropdown-menu.show {
+        transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-menu a {
+        padding: 1rem 1.5rem;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/* Landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .dropdown-menu {
+        max-height: 80vh;
+        overflow-y: auto;
+        top: 55px;
+    }
+    
+    .dropdown-menu a {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* ===== OVERLAY ===== */
+.dropdown-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dropdown-overlay.show {
+    display: block;
+    opacity: 1;
+}
+
+/* Animasi */
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
