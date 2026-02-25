@@ -172,47 +172,106 @@
 .hamburger-wrapper {
     position: relative;
     display: block;
+    z-index: 1000;
 }
 
 /* Dropdown menu styling */
 .dropdown-menu {
     position: absolute;
-    top: 60px;
+    top: calc(100% + 10px); /* Selalu di bawah hamburger */
     right: 0;
     min-width: 220px;
-    background: rgba(30, 70, 50, 0.4);
+    background: rgba(30, 70, 50, 0.95); /* Lebih solid untuk mobile */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 1.5rem;
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 20px 35px -10px rgba(0, 30, 10, 0.5);
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.5);
     display: none;
     z-index: 1001;
+    
+    /* Animasi */
+    transform-origin: top right;
+    animation: dropdownFadeIn 0.2s ease;
 }
 
-/* Pastikan dropdown tetap di dalam wrapper di mobile */
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Mobile specific fixes */
+@media screen and (max-width: 768px) {
+    .dropdown-menu {
+        position: fixed; /* Fixed biar ga kena overflow parent */
+        top: auto;
+        bottom: auto;
+        right: 1rem;
+        left: 1rem;
+        width: auto;
+        min-width: auto;
+        max-width: 300px;
+        margin: 0 auto;
+        transform-origin: top center;
+    }
+    
+    /* Posisikan di bawah hamburger dengan JavaScript bakal ngatur ini */
+    .dropdown-menu.show {
+        position: absolute;
+    }
+}
+
+/* Untuk HP tertentu (Redmi, dll) */
 @media screen and (max-width: 576px) {
     .hamburger-wrapper {
-        position: relative; /* JANGAN static, tetap relative */
+        position: static; /* Biar wrapper ga ngikat */
     }
     
     .dropdown-menu {
-        position: absolute;
-        top: 50px; /* Sesuaikan posisi */
-        right: 0;
-        left: auto; /* Pastikan tidak melebar ke kiri */
-        min-width: 200px;
-        width: auto; /* Jangan full width */
+        position: fixed;
+        top: 70px; /* Di bawah navbar */
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+        max-width: none;
         border-radius: 1.2rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Animasi masuk dari atas */
+    @keyframes mobileDropdownIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .dropdown-menu.show {
+        animation: mobileDropdownIn 0.25s ease;
     }
 }
 
-/* Untuk layar sangat kecil, turunkan sedikit */
-@media screen and (max-width: 380px) {
+/* Landscape mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
     .dropdown-menu {
-        top: 45px;
-        min-width: 180px;
+        max-height: 80vh;
+        overflow-y: auto;
+        top: 60px;
+    }
+    
+    .dropdown-menu a {
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -228,6 +287,8 @@
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.2s ease;
+    position: relative;
+    z-index: 1002;
 }
 
 .hamburger:hover {
@@ -241,6 +302,15 @@
 .hamburger-text {
     font-size: 1rem;
     font-weight: 500;
+}
+
+/* Ikon hamburger animasi */
+.hamburger i {
+    transition: transform 0.3s ease;
+}
+
+.hamburger.active i {
+    transform: rotate(90deg);
 }
 
 /* Responsive hamburger */
@@ -262,15 +332,17 @@
 
 @media screen and (max-width: 576px) {
     .hamburger {
-        padding: 0.4rem 0.7rem;
-        font-size: 1.1rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 1.2rem;
+        background: rgba(30, 70, 50, 0.8); /* Lebih solid di mobile */
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
 }
 
 @media screen and (max-width: 380px) {
     .hamburger {
-        padding: 0.3rem 0.5rem;
-        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 1.1rem;
     }
 }
 

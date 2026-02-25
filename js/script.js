@@ -87,7 +87,6 @@ function loadHome() {
     `;
 }
 
-
 // ===== LOAD ABOUT =====
 function loadAbout() {
     const about = document.querySelector('#about');
@@ -126,9 +125,14 @@ function loadAbout() {
                         <i class="fas fa-user-graduate"></i>
                         Eka Restu Syahputra
                     </h3>
+                    <p class="bio-quote">"Consistency over perfection"</p>
                     <p>I believe growth happens through consistency. Every single day, I push myself to learn something new, improve my skills, and become better than I was yesterday.</p>
                     <p>I'm not chasing perfection. I'm focused on progress — building discipline, strengthening my problem-solving mindset, and developing the habits that will shape me into a reliable developer in the future.</p>
-                    <span class="badge">#AlwaysLearning</span>
+                    <div class="bio-tags">
+                        <span class="badge">#AlwaysLearning</span>
+                        <span class="badge">#CuriousMind</span>
+                        <span class="badge">#HealthyLifestyle</span>
+                    </div>
                 </div>
             </div>
             
@@ -148,7 +152,7 @@ function loadAbout() {
                         <div class="about-card-item">
                             <i class="fas fa-heart"></i>
                             <span class="label">Interests</span>
-                            <span class="value">Running, Nutrition, Coding, Comics</span>
+                            <span class="value">Running, Nutrition, Self-Improvement, Tinkering</span>
                         </div>
                         <div class="about-card-item">
                             <i class="fas fa-map-marker-alt"></i>
@@ -204,6 +208,7 @@ function loadAbout() {
                     <span class="skill-tag"><i class="fab fa-git-alt"></i> Git</span>
                     <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
                     <span class="skill-tag"><i class="fas fa-bolt"></i> Problem Solving</span>
+                    <span class="skill-tag"><i class="fas fa-microscope"></i> Tinkering</span>
                 </div>
             </div>
             
@@ -222,17 +227,46 @@ function loadAbout() {
                     <span>Coding</span>
                 </div>
                 <div class="interest-item">
-                    <i class="fas fa-book-open"></i>
-                    <span>Comics</span>
+                    <i class="fas fa-book"></i>
+                    <span>Self-Improvement</span>
                 </div>
                 <div class="interest-item">
-                    <i class="fas fa-dumbbell"></i>
-                    <span>Healthy Lifestyle</span>
+                    <i class="fas fa-microscope"></i>
+                    <span>Tinkering</span>
+                </div>
+            </div>
+
+            <!-- Books Section (New) -->
+            <div class="about-books">
+                <h3><i class="fas fa-book-reader"></i> Currently Reading</h3>
+                <div class="books-list">
+                    <div class="book-item">
+                        <i class="fas fa-book-open"></i>
+                        <div class="book-info">
+                            <span class="book-title">Atomic Habits</span>
+                            <span class="book-author">James Clear</span>
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <i class="fas fa-book-open"></i>
+                        <div class="book-info">
+                            <span class="book-title">The Power of Now</span>
+                            <span class="book-author">Eckhart Tolle</span>
+                        </div>
+                    </div>
+                    <div class="book-item">
+                        <i class="fas fa-book-open"></i>
+                        <div class="book-info">
+                            <span class="book-title">Mindset</span>
+                            <span class="book-author">Carol Dweck</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     `;
 }
+
 
 /// ===== LOAD EXPERIENCE =====
 function loadExperience() {
@@ -632,7 +666,7 @@ function initGroupPopup() {
     });
 }
 
-// ===== INIT HAMBURGER =====
+// Update di function initHamburger()
 function initHamburger() {
     const hamburger = document.getElementById('hamburger');
     const dropdown = document.getElementById('dropdownMenu');
@@ -642,40 +676,66 @@ function initHamburger() {
     hamburger.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
-        dropdown.classList.toggle('show');
         
+        // Toggle class
+        dropdown.classList.toggle('show');
+        this.classList.toggle('active');
+        
+        // Update icon
         const icon = this.querySelector('i');
         if (dropdown.classList.contains('show')) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
             this.setAttribute('aria-expanded', 'true');
+            
+            // Atur posisi dropdown di mobile
+            if (window.innerWidth <= 576) {
+                const rect = this.getBoundingClientRect();
+                dropdown.style.top = (rect.bottom + 10) + 'px';
+                dropdown.style.left = '1rem';
+                dropdown.style.right = '1rem';
+            }
         } else {
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
             this.setAttribute('aria-expanded', 'false');
+            dropdown.style.top = ''; // Reset
         }
     });
     
+    // Tutup saat klik di luar
     document.addEventListener('click', function(e) {
         if (!hamburger.contains(e.target) && !dropdown.contains(e.target)) {
             dropdown.classList.remove('show');
+            hamburger.classList.remove('active');
             const icon = hamburger.querySelector('i');
             if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+            dropdown.style.top = ''; // Reset
         }
     });
     
+    // Handle resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 576) {
+            dropdown.style.top = ''; // Reset posisi
+        }
+    });
+    
+    // Tutup saat link diklik
     const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
     dropdownLinks.forEach(link => {
         link.addEventListener('click', function() {
             dropdown.classList.remove('show');
+            hamburger.classList.remove('active');
             const icon = hamburger.querySelector('i');
             if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+            dropdown.style.top = ''; // Reset
         });
     });
 }

@@ -97,11 +97,27 @@
     font-size: 1.3rem;
 }
 
+.bio-quote {
+    font-style: italic;
+    color: #1a4f2a;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid #8fc99e;
+    padding-left: 1rem;
+}
+
 .about-bio-text p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #05200e;
-    margin: 0;
+    margin-bottom: 0.8rem;
+}
+
+.bio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .about-bio-text .badge {
@@ -110,12 +126,15 @@
     color: white;
     padding: 0.3rem 1rem;
     border-radius: 2rem;
-    font-size: 0.9rem;
-    margin-top: 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
 }
 
-/* ===== ABOUT SECTION IMPROVED ===== */
+.about-bio-text .badge:hover {
+    background: #2d6b3f;
+    transform: translateY(-2px);
+}
 
 /* Info Grid */
 .about-grid {
@@ -161,6 +180,7 @@
     text-align: center;
     border-radius: 50%;
     border: 2px solid #8fc99e;
+    flex-shrink: 0;
 }
 
 .about-card-header h3 {
@@ -298,10 +318,96 @@
     font-weight: 500;
 }
 
-/* ===== RESPONSIVE ABOUT IMPROVED ===== */
+/* Books Section */
+.about-books {
+    margin-top: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+}
+
+.about-books h3 {
+    color: #0f371f;
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-left: 3px solid #8fc99e;
+    padding-left: 1rem;
+}
+
+.about-books h3 i {
+    color: #8fc99e;
+}
+
+.books-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.book-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.book-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #8fc99e;
+    transform: translateY(-2px);
+}
+
+.book-item i {
+    color: #8fc99e;
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.book-title {
+    color: #0f371f;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.book-author {
+    color: #4a6b55;
+    font-size: 0.85rem;
+}
+
+/* ===== RESPONSIVE ABOUT ===== */
 
 /* Tablet (768px - 992px) */
-@media screen and (max-width: 992px) and (min-width: 769px) {
+@media screen and (max-width: 992px) {
+    .about-stats {
+        gap: 1.2rem;
+    }
+    
+    .stat-item {
+        padding: 1.2rem 1.5rem;
+        min-width: 130px;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
     .about-grid {
         gap: 1.2rem;
     }
@@ -329,10 +435,45 @@
     .about-card-item .value {
         font-size: 0.9rem;
     }
+    
+    .books-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Mobile Large (576px - 768px) */
+/* Mobile Large (max-width: 768px) */
 @media screen and (max-width: 768px) {
+    .about-stats {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+        min-width: auto;
+        padding: 1rem;
+    }
+    
+    .about-bio {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .about-bio-text h3 {
+        justify-content: center;
+    }
+    
+    .bio-quote {
+        text-align: left;
+    }
+    
+    .bio-tags {
+        justify-content: center;
+    }
+    
     .about-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -421,10 +562,32 @@
     .interest-item span {
         font-size: 0.85rem;
     }
+    
+    .about-books {
+        padding: 1.2rem;
+    }
+    
+    .books-list {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
 }
 
-/* Mobile Medium (480px - 576px) */
+/* Mobile Medium (max-width: 576px) */
 @media screen and (max-width: 576px) {
+    .about-bio-img img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .about-bio-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .about-bio-text p {
+        font-size: 0.95rem;
+    }
+    
     .about-card {
         padding: 1rem;
     }
@@ -441,8 +604,8 @@
     }
     
     .about-card-item {
-        flex-wrap: nowrap;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.3rem;
     }
     
     .about-card-item i {
@@ -450,7 +613,6 @@
         height: 24px;
         line-height: 24px;
         font-size: 0.75rem;
-        margin-top: 2px;
     }
     
     .about-card-item .label {
@@ -459,8 +621,24 @@
     }
     
     .about-card-item .value {
+        width: 100%;
+        margin-left: 32px;
         font-size: 0.85rem;
-        line-height: 1.4;
+    }
+    
+    /* Tech stack card tetap horizontal */
+    .about-card:last-child .about-card-item {
+        flex-wrap: nowrap;
+    }
+    
+    .about-card:last-child .about-card-item .label {
+        min-width: 50px;
+        margin-left: 0;
+    }
+    
+    .about-card:last-child .about-card-item .value {
+        width: auto;
+        margin-left: 0;
     }
     
     .about-skills {
@@ -477,15 +655,10 @@
         font-size: 0.8rem;
     }
     
-    .skill-tag i {
-        font-size: 0.8rem;
-        margin-right: 0.3rem;
-    }
-    
     .interest-item {
-        min-width: 80px;
-        max-width: 85px;
-        padding: 0.7rem;
+        min-width: 70px;
+        max-width: 80px;
+        padding: 0.6rem;
     }
     
     .interest-item i {
@@ -497,60 +670,30 @@
     }
 }
 
-/* Mobile Small (380px - 480px) */
-@media screen and (max-width: 480px) {
-    .about-card-item {
-        flex-wrap: wrap;
-        gap: 0.3rem;
-    }
-    
-    .about-card-item i {
-        margin-right: 0;
-    }
-    
-    .about-card-item .label {
-        min-width: auto;
-        width: auto;
-        margin-left: 32px;
-        font-size: 0.85rem;
-    }
-    
-    .about-card-item .value {
-        width: 100%;
-        margin-left: 32px;
-        font-size: 0.85rem;
-        padding-left: 0;
-    }
-    
-    /* Special styling untuk tech stack card */
-    .about-card:last-child .about-card-item {
-        flex-wrap: nowrap;
-    }
-    
-    .about-card:last-child .about-card-item .label {
-        min-width: 50px;
-        margin-left: 0;
-    }
-    
-    .about-card:last-child .about-card-item .value {
-        width: auto;
-        margin-left: 0;
-    }
-    
-    .skill-tag {
-        padding: 0.25rem 0.6rem;
-        font-size: 0.75rem;
-    }
-    
-    .interest-item {
-        min-width: 70px;
-        max-width: 75px;
-        padding: 0.6rem;
-    }
-}
-
-/* Mobile Extra Small (max-width: 380px) */
+/* Mobile Small (max-width: 380px) */
 @media screen and (max-width: 380px) {
+    .about-bio {
+        padding: 1rem;
+    }
+    
+    .about-bio-img img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .about-bio-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .about-bio-text p {
+        font-size: 0.9rem;
+    }
+    
+    .badge {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.8rem;
+    }
+    
     .about-card-header i {
         width: 30px;
         height: 30px;
@@ -564,14 +707,11 @@
     
     .about-card-item .label {
         font-size: 0.8rem;
+        min-width: 55px;
     }
     
     .about-card-item .value {
         font-size: 0.8rem;
-    }
-    
-    .about-skills h3 {
-        font-size: 1rem;
     }
     
     .skill-tag {
@@ -580,7 +720,7 @@
     }
     
     .interest-item {
-        min-width: 65px;
+        min-width: 60px;
         max-width: 70px;
         padding: 0.5rem;
     }
@@ -589,8 +729,16 @@
         font-size: 1.3rem;
     }
     
-    .interest-item span {
-        font-size: 0.7rem;
+    .book-item {
+        padding: 0.6rem;
+    }
+    
+    .book-title {
+        font-size: 0.9rem;
+    }
+    
+    .book-author {
+        font-size: 0.75rem;
     }
 }
 
@@ -647,10 +795,21 @@
         padding: 0.2rem 0.6rem;
         font-size: 0.75rem;
     }
+    
+    .books-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /* Hover effects hanya untuk desktop */
 @media (hover: hover) {
+    .stat-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.35);
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 15px 25px -8px #1f4f2b;
+    }
+    
     .about-card:hover {
         transform: translateY(-3px);
         background: rgba(255, 255, 255, 0.3);
@@ -675,13 +834,26 @@
         background: rgba(255, 255, 255, 0.25);
         border-color: #8fc99e;
     }
+    
+    .book-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #8fc99e;
+        transform: translateY(-2px);
+    }
+    
+    .about-bio-text .badge:hover {
+        background: #2d6b3f;
+        transform: translateY(-2px);
+    }
 }
 
 /* Active state untuk mobile */
 @media (hover: none) and (pointer: coarse) {
+    .stat-item:active,
     .about-card:active,
     .skill-tag:active,
-    .interest-item:active {
+    .interest-item:active,
+    .book-item:active {
         transform: scale(0.98);
         background: rgba(255, 255, 255, 0.35);
         transition: 0.1s;
