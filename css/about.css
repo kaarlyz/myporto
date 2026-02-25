@@ -1,8 +1,310 @@
 /* ===== ABOUT SECTION ===== */
 .about-box {
-    /* Inherit from .box */
+    flex-direction: column;
+    align-items: stretch;
 }
 
+/* Profile Stats Card */
+.about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin: 2rem 0 1rem 0;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+    padding: 1.5rem 2rem;
+    min-width: 150px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px -5px rgba(0, 40, 20, 0.2);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 25px -8px #1f4f2b;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #0f371f;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #0f371f, #2d6b3f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #092012;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Bio Card */
+.about-bio {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2.5rem;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-bio-img {
+    flex: 0 0 120px;
+}
+
+.about-bio-img img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #8fc99e;
+    box-shadow: 0 10px 20px -5px rgba(0, 40, 20, 0.3);
+}
+
+.about-bio-text {
+    flex: 1;
+}
+
+.about-bio-text h3 {
+    font-size: 1.5rem;
+    color: #0f371f;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-bio-text h3 i {
+    color: #8fc99e;
+    font-size: 1.3rem;
+}
+
+.about-bio-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #05200e;
+    margin: 0;
+}
+
+.about-bio-text .badge {
+    display: inline-block;
+    background: #1a4f2a;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Info Grid */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #8fc99e;
+}
+
+.about-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid rgba(143, 201, 158, 0.5);
+    padding-bottom: 0.8rem;
+}
+
+.about-card-header i {
+    font-size: 2rem;
+    color: #0f371f;
+    background: rgba(255, 255, 255, 0.4);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #8fc99e;
+}
+
+.about-card-header h3 {
+    font-size: 1.3rem;
+    color: #0f371f;
+    margin: 0;
+}
+
+.about-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.about-card-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: all 0.2s ease;
+}
+
+.about-card-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.about-card-item i {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #8fc99e;
+    color: #0f371f;
+    border-radius: 50%;
+    font-size: 0.9rem;
+}
+
+.about-card-item .label {
+    font-weight: 600;
+    color: #0f371f;
+    min-width: 80px;
+}
+
+.about-card-item .value {
+    color: #05200e;
+    flex: 1;
+}
+
+/* Skills Section */
+.about-skills {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.about-skills h3 {
+    font-size: 1.3rem;
+    color: #0f371f;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-left: 4px solid #8fc99e;
+    padding-left: 1rem;
+}
+
+.skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(143, 201, 158, 0.5);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    color: #0f371f;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background: #1a4f2a;
+    color: white;
+    border-color: white;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px -5px #1f4f2b;
+}
+
+.skill-tag i {
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Interests Section */
+.about-interests {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.interest-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    min-width: 100px;
+    transition: all 0.2s ease;
+}
+
+.interest-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #8fc99e;
+}
+
+.interest-item i {
+    font-size: 2rem;
+    color: #0f371f;
+    margin-bottom: 0.5rem;
+}
+
+.interest-item span {
+    display: block;
+    font-size: 0.9rem;
+    color: #05200e;
+    font-weight: 500;
+}
+
+/* Legacy info-list (tetap dipertahankan untuk kompatibilitas) */
 .info-list {
     background: rgba(255, 255, 255, 0.3);
     padding: 1.5rem 2rem;
@@ -15,8 +317,325 @@
     font-size: 1.1rem;
 }
 
-/* About specific */
 .about-box .myname h2 {
     color: #0f371f;
     text-shadow: none;
+}
+
+/* ===== RESPONSIVE ABOUT ===== */
+
+/* Tablet (992px) */
+@media screen and (max-width: 992px) {
+    .stat-item {
+        padding: 1.2rem 1.5rem;
+        min-width: 130px;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .about-bio {
+        padding: 1.8rem;
+    }
+    
+    .about-grid {
+        gap: 1.2rem;
+    }
+    
+    .about-card {
+        padding: 1.2rem;
+    }
+}
+
+/* Mobile Landscape (768px) */
+@media screen and (max-width: 768px) {
+    .about-stats {
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1rem 1.2rem;
+        min-width: 110px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .about-bio {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .about-bio-img {
+        flex: 0 0 auto;
+    }
+    
+    .about-bio-text h3 {
+        justify-content: center;
+    }
+    
+    .about-bio-text .badge {
+        margin-top: 0.5rem;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .about-card {
+        padding: 1.2rem;
+    }
+    
+    .about-card-header i {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 1.8rem;
+    }
+    
+    .about-card-header h3 {
+        font-size: 1.2rem;
+    }
+    
+    .about-card-item {
+        gap: 0.8rem;
+    }
+    
+    .about-card-item .label {
+        min-width: 70px;
+        font-size: 0.95rem;
+    }
+    
+    .about-card-item .value {
+        font-size: 0.95rem;
+    }
+    
+    .skills-cloud {
+        gap: 0.6rem;
+    }
+    
+    .skill-tag {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .interest-item {
+        min-width: 90px;
+        padding: 0.8rem;
+    }
+    
+    .interest-item i {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile Kecil (576px) */
+@media screen and (max-width: 576px) {
+    .about-stats {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+        min-width: auto;
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .about-bio {
+        padding: 1.5rem;
+        border-radius: 2rem;
+    }
+    
+    .about-bio-img img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .about-bio-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .about-bio-text p {
+        font-size: 0.95rem;
+    }
+    
+    .about-card {
+        padding: 1rem;
+    }
+    
+    .about-card-header i {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .about-card-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .about-card-item {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .about-card-item i {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 0.8rem;
+    }
+    
+    .about-card-item .label {
+        min-width: 70px;
+        font-size: 0.9rem;
+    }
+    
+    .about-card-item .value {
+        font-size: 0.9rem;
+        width: 100%;
+        margin-left: 35px;
+    }
+    
+    .about-skills {
+        padding: 1.2rem;
+    }
+    
+    .about-skills h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .skills-cloud {
+        gap: 0.5rem;
+    }
+    
+    .skill-tag {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .interest-item {
+        min-width: 80px;
+        padding: 0.7rem;
+    }
+    
+    .interest-item i {
+        font-size: 1.5rem;
+    }
+    
+    .interest-item span {
+        font-size: 0.8rem;
+    }
+    
+    .info-list {
+        padding: 1rem 1.2rem;
+    }
+    
+    .info-list p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile Sangat Kecil (380px) */
+@media screen and (max-width: 380px) {
+    .about-bio {
+        padding: 1.2rem;
+    }
+    
+    .about-bio-img img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .about-bio-text h3 {
+        font-size: 1.2rem;
+    }
+    
+    .about-bio-text p {
+        font-size: 0.9rem;
+    }
+    
+    .about-card-item .label {
+        min-width: 60px;
+        font-size: 0.85rem;
+    }
+    
+    .about-card-item .value {
+        font-size: 0.85rem;
+    }
+    
+    .skill-tag {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    .interest-item {
+        min-width: 70px;
+        padding: 0.5rem;
+    }
+    
+    .interest-item i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Hover effects hanya untuk desktop */
+@media (hover: hover) {
+    .stat-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.35);
+        border-color: rgba(255, 255, 255, 0.6);
+        box-shadow: 0 15px 25px -8px #1f4f2b;
+    }
+    
+    .about-card:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.3);
+        border-color: #8fc99e;
+    }
+    
+    .about-card-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateX(5px);
+    }
+    
+    .skill-tag:hover {
+        background: #1a4f2a;
+        color: white;
+        border-color: white;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px -5px #1f4f2b;
+    }
+    
+    .interest-item:hover {
+        transform: translateY(-3px);
+        background: rgba(255, 255, 255, 0.25);
+        border-color: #8fc99e;
+    }
+}
+
+/* Active state untuk mobile */
+@media (hover: none) and (pointer: coarse) {
+    .stat-item:active,
+    .about-card:active,
+    .skill-tag:active,
+    .interest-item:active {
+        transform: scale(0.98);
+        background: rgba(255, 255, 255, 0.35);
+    }
 }

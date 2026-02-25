@@ -61,3 +61,59 @@ html {
 .box:hover {
     transform: translateY(-5px);
 }
+
+/* ===== MEDIA QUERIES UNTUK RESPONSIVITAS ===== */
+
+/* Tablet (max-width: 992px) */
+@media screen and (max-width: 992px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .box {
+        width: 92%;
+        padding: 2.5rem 2rem;
+        border-radius: 2.5rem;
+    }
+}
+
+/* Mobile Landscape (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .box {
+        flex-direction: column;
+        width: 94%;
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
+        margin: 1.5rem auto 3rem auto;
+    }
+    
+    #home, #about, #experience, #business, #contact {
+        scroll-margin-top: 80px;
+    }
+}
+
+/* Mobile Portrait (max-width: 576px) */
+@media screen and (max-width: 576px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    .box {
+        width: 92%;
+        padding: 1.5rem 1rem;
+        border-radius: 1.8rem;
+        margin: 1rem auto 2.5rem auto;
+    }
+    
+    .box:hover {
+        transform: translateY(-3px);
+    }
+}
+
+/* Untuk layar sangat kecil (max-width: 375px) */
+@media screen and (max-width: 375px) {
+    .box {
+        padding: 1rem 0.8rem;
+        border-radius: 1.5rem;
+    }
+}
